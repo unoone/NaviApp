@@ -10,6 +10,7 @@ class NewPlacemark extends React.Component {
   }
   onMove = e => {
     this.props.addCoordinates(e.originalEvent.target.geometry._coordinates);
+    console.log("coord", e.originalEvent.target.geometry._coordinates);
   };
   render() {
     return this.props.geoPosition.length != 0 && this.props.placemarkVisible ? (

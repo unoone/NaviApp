@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 
 import NewPlacemark from "./NewPlacemark";
+import PlacemarkView from "./Placemark";
 
 import * as selectorsMap from "../ducks/map-duck/Selectors";
 import { connect } from "react-redux";
@@ -69,11 +70,13 @@ class MapContainer extends React.Component {
             width="100%"
             height="90%"
           >
-
             <NewPlacemark
               geoPosition={this.state.geoPosition}
               placemarkVisible={this.state.placemarkVisible}
             />
+            {this.props.placemarkList.map((placemarkInfo, i) => {
+              return <PlacemarkView key={i} placemarkInfo={placemarkInfo} />;
+            })}
           </Map>
         </YMaps>
       </div>
